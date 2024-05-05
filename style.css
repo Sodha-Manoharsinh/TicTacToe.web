@@ -2,6 +2,18 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  user-select: none; /* Standard syntax */
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  transition: all 2s ease-in-out;
+}
+
+:root {
+  --bg-color: rgb(128, 0, 0);
+}
+
+body {
+  overflow: hidden;
 }
 
 .flex-center {
@@ -11,10 +23,32 @@
   flex-direction: column;
 }
 
+.color {
+  position: relative;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 5px solid white;
+  margin-top: 40px;
+  box-shadow: 15px 10px 10px rgb(0, 0, 0);
+  margin-bottom: 20px;
+}
+
+input[type="color"] {
+  position: absolute;
+  right: -8px;
+  top: -8px;
+  height: 76px;
+  width: 76px;
+  border: none;
+}
+
 .board {
-  height: 1024px;
-  background-color: rgb(0, 17, 128);
-  display: flex;
+  height: 2000px;
+  background-color: var(--bg-color);
+  padding-top: 50px;
+  justify-content: start;
 }
 
 h1 {
@@ -22,7 +56,7 @@ h1 {
   font-size: 50px;
   color: white;
   margin-bottom: 20px;
-  text-shadow: 15px 10px 7px rgb(0, 0, 0);
+  text-shadow: 5px 5px 7px rgb(0, 0, 0);
 }
 
 button {
@@ -32,9 +66,12 @@ button {
   border: 3px solid white;
   border-radius: 5px;
   font-size: 25px;
-  margin-bottom: 30px;
+  margin-top: 30px;
   color: white;
   background-color: #ffffff63;
+  box-shadow: 15px 10px 10px rgb(0, 0, 0);
+  text-shadow: 2px 2px 2px rgb(0, 0, 0);
+  transition: all 0.5s ease-in;
 }
 
 .boxes {
@@ -48,23 +85,55 @@ button {
   border: 3px solid white;
   border-radius: 5px;
   color: white;
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   background-color: #ffffff63;
   margin: 10px;
-  font-size: 40px;
+  font-size: 55px;
   display: flex;
   justify-content: center;
   align-items: center;
-  -webkit-user-select: none; /* Safari */
-  -ms-user-select: none; /* IE 10 and IE 11 */
-  user-select: none; /* Standard syntax */
+  transition: all 0.2s ease-in;
 }
 
-.box:hover {
-  background-color: #ffffff98;
+.box:hover,
+button:hover,
+.box:focus,
+button:focus {
+  background-color: #ffffffb5;
+  color: var(--bg-color);
 }
 
-button:hover {
-  background-color: #ffffff98;
+@media (min-width: 475px) {
+  .box {
+    height: 100px;
+    width: 100px;
+  }
+}
+
+/* sm */
+@media (min-width: 640px) {
+  h1 {
+    font-size: 60px;
+  }
+  .box {
+    height: 115px;
+    width: 115px;
+    font-size: 60px;
+  }
+  button {
+    font-size: 30px;
+  }
+}
+
+/* md */
+@media (min-width: 768px) {
+  h1 {
+    font-size: 70px;
+  }
+  .box {
+    height: 130px;
+    width: 130px;
+    font-size: 65px;
+  }
 }
