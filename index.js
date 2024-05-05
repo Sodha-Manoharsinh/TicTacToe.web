@@ -1,5 +1,15 @@
+const [colorSelector] = document.getElementsByTagName("input");
+
+let player1, player2, bgcolor;
+
+const startbtn = document.getElementById("start");
+
+colorSelector.addEventListener("change", () => {
+  document.documentElement.style.setProperty("--bg-color", colorSelector.value);
+});
+
 const boxes = Array.from(document.getElementsByClassName("box"));
-const [button] = document.getElementsByTagName("button");
+const restartBtn = document.getElementById("restart");
 const [heading] = document.getElementsByTagName("h1");
 
 const X_TURN = "X";
@@ -11,7 +21,7 @@ heading.innerHTML = `Turn = ${currentPlayer}`;
 let spaces = Array(9).fill(null);
 let counts_played = 0;
 
-button.addEventListener("click", restart);
+restartBtn.addEventListener("click", restart);
 
 function startGame() {
   for (let box of boxes) {
