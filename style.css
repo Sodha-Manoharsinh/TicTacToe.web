@@ -116,11 +116,6 @@ button:focus {
   h1 {
     font-size: 60px;
   }
-  .box {
-    height: 115px;
-    width: 115px;
-    font-size: 60px;
-  }
   button {
     font-size: 30px;
   }
@@ -130,10 +125,5 @@ button:focus {
 @media (min-width: 768px) {
   h1 {
     font-size: 70px;
-  }
-  .box {
-    height: 130px;
-    width: 130px;
-    font-size: 65px;
   }
 }
